@@ -4,7 +4,7 @@ export default {
     theme: {
       extend: {},
       fontFamily: {
-        agdasima: ['Agdasima', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
     },
     plugins: [],
