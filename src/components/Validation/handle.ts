@@ -23,7 +23,7 @@ function useRegisterHandler(
 
         if (registrationSuccessful) {
             setTimeout(() => {
-                navigate("/verifi");
+                navigate("/verificacion");
             }, 3000);
         }
 
