@@ -8,7 +8,7 @@ function Sesion() {
     };
 
     return (
-        <div className="font-inter flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-900 via-black to-gray-900">
+        <div className="font-quicksand flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-900 via-black to-gray-900">
             <div className="bg-gray-800 p-8 rounded-lg shadow-lg max-w-md w-full">
                 <h2 className="text-3xl font-extrabold text-white text-center mb-6">
                     Inicia Sesión

@@ -1,6 +1,6 @@
 function EmailVerification() {
     return (
-        <div className="font-inter flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-900 via-black to-gray-900">
+        <div className="font-quicksand flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-900 via-black to-gray-900">
             <div className="bg-gray-800 p-8 rounded-lg shadow-lg max-w-md w-full">
                 <h2 className="text-3xl font-extrabold text-white text-center mb-6">
                     Verifica tu Correo Electrónico
@@ -36,9 +36,9 @@ function EmailVerification() {
                 </form>
 
                 <p className="text-gray-400 text-sm text-center mt-6">
-                    ¿No recibiste el enlace?{" "}
-                    <a href="/resend-verification" className="text-orange-400 hover:text-yellow-400 transition">
-                        Reenviar enlace
+                    ¿Recuerdas la contraseña?{" "}
+                    <a href="/sesion" className="text-orange-400 hover:text-yellow-400 transition">
+                        Inicia Sesión
                     </a>
                 </p>
             </div>

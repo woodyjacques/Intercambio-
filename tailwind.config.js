@@ -4,7 +4,9 @@ export default {
     theme: {
       extend: {},
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        quicksand: ['Quicksand', 'sans-serif'],
       },
     },
     plugins: [],

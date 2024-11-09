@@ -12,7 +12,7 @@ export const handleSubmitUsers = async (
     setName: React.Dispatch<React.SetStateAction<string>>,
     setEmail: React.Dispatch<React.SetStateAction<string>>,
     setPassword: React.Dispatch<React.SetStateAction<string>>,
-    setisVerify: React.Dispatch<React.SetStateAction<boolean>>
+    setisVerified: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
     event.preventDefault();
     const MensajeErrUsuario = document.getElementById("MensajeErrUsuario");
@@ -37,7 +37,7 @@ export const handleSubmitUsers = async (
         setName("");
         setEmail("");
         setPassword("");
-        setisVerify(false);
+        setisVerified(false);
     }
 
     try {
