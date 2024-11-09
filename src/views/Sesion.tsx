@@ -1,10 +1,88 @@
-import { useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { handleSubmitUserSesion, handleSubmitVerifi } from '../validation/AuthSesion';
+export interface UserData {
+    name: string;
+    email: string;
+}
 
 function Sesion() {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
+    };
+
+
+    const navigate = useNavigate();
+    const token = localStorage.getItem("ACCESS_TOKEN");
+
+    useEffect(() => {
+        if (token) {
+            navigate("/");
+        }
+    }, [token, navigate]);
+
+    if (token) {
+        return null;
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const tokens = urlParams.get("token");
+
+    async function verificarTokens(tokens: any) {
+        if (tokens) {
+            const tokenData = await handleSubmitVerifi(tokens);
+
+            if (tokenData) {
+                const { token, name, email } = tokenData;
+
+                localStorage.setItem("ACCESS_TOKEN", token);
+
+                const sessionData: UserData = {
+                    name,
+                    email,
+                };
+
+                localStorage.setItem("USER_SESSION", JSON.stringify(sessionData));
+
+                setTimeout(() => {
+                    navigate("/userhome");
+                }, 1000);
+            }
+        }
+    }
+
+    verificarTokens(tokens);
+
+    const handleSubmitSesion = async (event: FormEvent) => {
+        event.preventDefault();
+        setIsLoading(true);
+
+        const sesionData = await handleSubmitUserSesion(event, email, password, setEmail, setPassword);
+
+        if (sesionData) {
+            const { token, name, email } = sesionData;
+
+            localStorage.setItem("ACCESS_TOKEN", token);
+
+            const sessionData: UserData = {
+                name,
+                email,
+            };
+
+            localStorage.setItem("USER_SESSION", JSON.stringify(sessionData));
+
+            setTimeout(() => {
+                navigate("/userhome");
+            }, 3000);
+        }
+
+        setIsLoading(false);
     };
 
     return (
@@ -14,7 +92,7 @@ function Sesion() {
                     Inicia Sesión
                 </h2>
 
-                <form className="space-y-6">
+                <form onSubmit={handleSubmitSesion} className="space-y-6">
                     <div>
                         <label className="block text-gray-400 text-sm font-semibold mb-2" htmlFor="email">
                             Correo electrónico
@@ -63,9 +141,9 @@ function Sesion() {
                     <div>
                         <button
                             type="submit"
-                            className="w-full p-3 rounded-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-semibold hover:opacity-90 transition transform hover:scale-105"
+                            className="w-full p-3 rounded-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-semibold hover:opacity-90 transition transform hover:scale-105" disabled={isLoading}
                         >
-                            Iniciar Sesión
+                            {isLoading ? "Iniciando..." : "Iniciar Sesión"}
                         </button>
                     </div>
                 </form>
