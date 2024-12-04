@@ -25,7 +25,7 @@ function Emailverifi() {
                     <p className="mb-8 text-lg font-normal lg:text-xl sm:px-16 lg:px-48 text-gray-200">
                         Revise su correo electrónico que le hemos enviado un link.
                     </p>
-                    <Link to="/sesion">
+                    <Link to="/login">
                         <button
                             type="submit"
                             className="p-3 rounded-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-semibold hover:opacity-90 transition transform hover:scale-105"

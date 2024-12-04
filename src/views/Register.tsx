@@ -53,7 +53,7 @@ function Register() {
 
                 <p className="text-gray-400 text-sm text-center mt-6">
                     ¿Ya tienes una cuenta?{" "}
-                    <a href="/sesion" className="text-orange-400 hover:text-yellow-400 transition">
+                    <a href="/login" className="text-orange-400 hover:text-yellow-400 transition">
                         Inicia sesión
                     </a>
                 </p>

@@ -11,7 +11,7 @@ function Section1() {
                     <p className="text-xl sm:text-2xl md:text-3xl font-light mb-10 text-gray-300">
                         La mejor plataforma para intercambiar productos de forma rápida y segura.
                     </p>
-                    <a href="/sesion" className="px-8 py-3 sm:px-10 sm:py-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-lg sm:text-xl md:text-2xl rounded-full shadow-lg hover:opacity-90 transition transform hover:scale-105">
+                    <a href="/login" className="px-8 py-3 sm:px-10 sm:py-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-lg sm:text-xl md:text-2xl rounded-full shadow-lg hover:opacity-90 transition transform hover:scale-105">
                         Descubre Más
                     </a>
                 </div>
