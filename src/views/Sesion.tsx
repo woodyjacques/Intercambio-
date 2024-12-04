@@ -1,6 +1,7 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { handleSubmitUserSesion, handleSubmitVerifi } from '../validation/AuthSesion';
+
 export interface UserData {
     name: string;
     email: string;
@@ -16,7 +17,6 @@ function Sesion() {
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-
 
     const navigate = useNavigate();
     const token = localStorage.getItem("ACCESS_TOKEN");

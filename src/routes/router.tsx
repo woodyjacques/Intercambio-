@@ -10,7 +10,7 @@ import Emailverifi from "../views/EmailVerifi";
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "/register", element: <Register /> },
-  { path: "/sesion", element: <Sesion /> },
+  { path: "/login", element: <Sesion /> },
   { path: "/emailverificacion", element: <EmailVerification /> },
   { path: "/actualizacion", element: <ActContrasena /> },
   { path: "/userhome", element: <UserHome /> },

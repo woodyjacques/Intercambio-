@@ -1,0 +1,18 @@
+Estructura básica Truequemanía
+Perfil de usuario: Incluyendo detalles personales, verificación de identidad mediante documento, artículos disponibles para intercambiar y lista de deseos.
+
+Galería de artículos: Cada usuario puede subir fotos de sus objetos, agregar una descripción detallada, indicar el estado del artículo y las categorías para facilitar la búsqueda.
+
+Sistema de emparejamiento: Un algoritmo que conecta usuarios con intereses de intercambio similares. Cuando dos usuarios muestran interés en los artículos del otro, se genera un "match".
+
+Chat interno: Una vez hecho el match, los usuarios pueden conversar en un chat privado para negociar los detalles del intercambio.
+
+Sistema de reputación: Los usuarios pueden calificar y dejar reseñas sobre sus experiencias de intercambio. Esto crea una comunidad de confianza, donde los usuarios pueden ver la reputación de sus posibles compañeros de intercambio.
+
+Notificaciones: Los usuarios reciben avisos sobre nuevas coincidencias, mensajes y actualizaciones importantes dentro de la aplicación.
+
+Soporte al cliente: Un canal dedicado para resolver problemas, recibir comentarios y responder consultas de los usuarios.
+
+Incorporar una opción de "Trueques Premium"? Los usuarios pagarían una suscripción para acceder a beneficios como más visibilidad para sus artículos, envíos gratuitos o descuentos en el costo de los envíos. También podríamos ofrecer promociones especiales para incentivar el intercambio en ciertas categorías. 
+
+

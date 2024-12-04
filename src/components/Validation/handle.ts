@@ -30,10 +30,7 @@ function useRegisterHandler(
         setIsLoading(false);
     };
 
-    return {
-        handleSubmitRegister,
-        isLoading,
-    };
+    return { handleSubmitRegister, isLoading };
 }
 
 export default useRegisterHandler;
