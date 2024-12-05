@@ -91,7 +91,9 @@ function Sesion() {
                 <h2 className="text-3xl font-extrabold text-white text-center mb-6">
                     Inicia Sesión
                 </h2>
-
+                <p id="MensajeErrUsuario" className="hidden text-red-500 text-sm font-medium rounded-lg text-center"></p>
+                <p id="MensajeActUsuario" className="hidden text-green-500 text-sm font-medium rounded-lg text-center"></p>
+                
                 <form onSubmit={handleSubmitSesion} className="space-y-6">
                     <div>
                         <label className="block text-gray-400 text-sm font-semibold mb-2" htmlFor="email">
@@ -101,7 +103,8 @@ function Sesion() {
                             id="email"
                             name="email"
                             type="email"
-                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             className="w-full p-3 rounded-lg bg-gray-900 text-white focus:ring-2 focus:ring-orange-400 focus:outline-none"
                             placeholder="tuemail@ejemplo.com"
                         />
@@ -115,8 +118,9 @@ function Sesion() {
                             <input
                                 id="password"
                                 name="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 type={showPassword ? "text" : "password"}
-                                required
                                 className="w-full p-3 rounded-lg bg-gray-900 text-white focus:ring-2 focus:ring-orange-400 focus:outline-none"
                                 placeholder="Tu contraseña"
                             />
