@@ -1,4 +1,5 @@
 Estructura básica Truequemanía
+
 Perfil de usuario: Incluyendo detalles personales, verificación de identidad mediante documento, artículos disponibles para intercambiar y lista de deseos.
 
 Galería de artículos: Cada usuario puede subir fotos de sus objetos, agregar una descripción detallada, indicar el estado del artículo y las categorías para facilitar la búsqueda.

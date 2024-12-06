@@ -4,7 +4,7 @@ import Register from "../views/Register";
 import Sesion from "../views/Sesion";
 import EmailVerification from "../views/EmailVerificacion";
 import ActContrasena from "../views/ActContrasena";
-import UserHome from "../views/UserHome";
+import Explorador from "../views/Explorador";
 import Emailverifi from "../views/EmailVerifi";
 import Header from "../components/userHome/header";
 
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Header />,
     children: [
-      { path: "/userhome", element: <UserHome /> },
+      { path: "/explorar", element: <Explorador /> },
     ]
 },
 

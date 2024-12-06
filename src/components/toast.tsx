@@ -25,7 +25,7 @@ export function mostrarMensaje(mensaje: string, elemento: HTMLElement | null) {
   
     return (
       <div className="bg-gray-100 bg-opacity-70 fixed inset-0 flex justify-center items-center z-50">
-        <div id="popup-modal" className="relative rounded-lg shadow bg-gray-700">
+        <div id="popup-modal" className="relative rounded-lg shadow bg-gradient-to-r from-gray-900 via-black to-gray-900">
           <button
             onClick={onClose}
             type="button"
@@ -68,7 +68,7 @@ export function mostrarMensaje(mensaje: string, elemento: HTMLElement | null) {
             <button
               onClick={onConfirm}
               type="button"
-              className="transition duration-300 transform hover:scale-105 text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+              className="transition duration-300 transform hover:scale-105 text-white bg-orange-600 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-green-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
             >
               Sí, seguro
             </button>

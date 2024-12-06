@@ -51,7 +51,7 @@ function ActContrasena() {
 
             localStorage.setItem("USER_SESSION", JSON.stringify(sessionData));
             setTimeout(() => {
-                navigate("/userhome");
+                navigate("/explorar");
             }, 3000);
         }
 

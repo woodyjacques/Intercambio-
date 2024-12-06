@@ -30,7 +30,7 @@ function Header() {
         navigate("/");
     };
 
-    const handleNavigation = (path:any) => {
+    const handleNavigation = (path: any) => {
         if (!isLogged) {
             navigate("/login");
         } else {
@@ -39,9 +39,18 @@ function Header() {
         }
     };
 
+    const navLinks = [
+        { path: "/explorar", label: "Galería" },
+        { path: "/articulos", label: "Artículos" },
+        { path: "/trueques", label: "Trueques" },
+        { path: "/favorito", label: "Favoritos" },
+        { path: "/perfil", label: "Perfil" },
+        { path: "/soporte", label: "Soporte" },
+    ];
+
     return (
         <>
-            <nav className="fixed top-0 z-50 w-full bg-sky-600 border-b border-sky-900 shadow-md">
+            <nav className="fixed top-0 z-50 w-full border-b shadow-md bg-gradient-to-r from-gray-900 via-black to-gray-900">
                 <div className="px-3 py-3 lg:px-5 lg:pl-3">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center justify-start">
@@ -67,13 +76,13 @@ function Header() {
                                 </svg>
                             </button>
                             <Link to="/obtener" className="flex ml-2 md:mr-24">
-                                
+
                                 <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white">
-                                <img
-                                    src={logoImage}
-                                    className="h-12 rounded-full bg-white"
-                                    alt="FlowBite Logo"
-                                />
+                                    <img
+                                        src={logoImage}
+                                        className="h-12 rounded-full bg-white"
+                                        alt="FlowBite Logo"
+                                    />
                                 </span>
                             </Link>
                         </div>
@@ -84,27 +93,23 @@ function Header() {
             <aside
                 id="logo-sidebar"
                 className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${isAsideOpen ? "translate-x-0" : "-translate-x-full"
-                    } bg-blue-200 border-r border-blue-200 shadow-md`}
+                    } border-r bg-gradient-to-r from-gray-900 via-black to-gray-900 shadow-md`}
                 aria-label="Sidebar"
             >
-                <div className="h-full px-3 pb-4 overflow-y-auto bg-blue-200 flex flex-col justify-between">
+                <div className="h-full px-3 pb-4 overflow-y-auto flex flex-col justify-between bg-gradient-to-r from-gray-900 via-black to-gray-900">
                     <ul className="space-y-2 font-medium">
-                        <li>
-                            <button
-                                onClick={() => handleNavigation("/")}
-                                className="transition duration-300 transform hover:scale-105 flex items-center p-2 text-white rounded-lg bg-sky-600 hover:bg-sky-500 w-full text-left"
-                            >
-                                <span className="flex-1 ml-3 whitespace-nowrap">Genera tus propuestas</span>
-                            </button>
-                        </li>
-                        <li>
-                            <button
-                                onClick={() => handleNavigation("/works")}
-                                className="transition duration-300 transform hover:scale-105 flex items-center p-2 text-white rounded-lg bg-gray-800 hover:bg-gray-500 w-full text-left"
-                            >
-                                <span className="flex-1 ml-3 whitespace-nowrap">Historial de propuestas</span>
-                            </button>
-                        </li>
+                        <ul className="space-y-2 font-medium">
+                            {navLinks.map((link, index) => (
+                                <li key={index}>
+                                    <button
+                                        onClick={() => handleNavigation(link.path)}
+                                        className="transition duration-300 transform hover:scale-105 flex items-center p-2 text-white rounded-lg bg-gray-800 hover:bg-gray-500 w-full text-left"
+                                    >
+                                        <span className="flex-1 ml-3 whitespace-nowrap">{link.label}</span>
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
                     </ul>
 
                     {isLogged && (
