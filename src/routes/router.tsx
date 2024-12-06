@@ -6,6 +6,7 @@ import EmailVerification from "../views/EmailVerificacion";
 import ActContrasena from "../views/ActContrasena";
 import UserHome from "../views/UserHome";
 import Emailverifi from "../views/EmailVerifi";
+import Header from "../components/userHome/header";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -14,7 +15,14 @@ const router = createBrowserRouter([
   { path: "/emailverificacion", element: <EmailVerification /> },
   { path: "/actualizacion", element: <ActContrasena /> },
   { path: "/userhome", element: <UserHome /> },
-  { path: "/verificacion", element: <Emailverifi /> }
+  { path: "/verificacion", element: <Emailverifi /> },
+  {
+    path: "/",
+    element: <Header />,
+    children: [
+      { path: "/", element: <UserHome /> }
+    ]
+},
 
 ]);
 
