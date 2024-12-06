@@ -14,13 +14,12 @@ const router = createBrowserRouter([
   { path: "/login", element: <Sesion /> },
   { path: "/emailverificacion", element: <EmailVerification /> },
   { path: "/actualizacion", element: <ActContrasena /> },
-  { path: "/userhome", element: <UserHome /> },
   { path: "/verificacion", element: <Emailverifi /> },
   {
     path: "/",
     element: <Header />,
     children: [
-      { path: "/", element: <UserHome /> }
+      { path: "/userhome", element: <UserHome /> },
     ]
 },
 
