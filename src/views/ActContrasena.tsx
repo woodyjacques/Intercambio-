@@ -1,8 +1,18 @@
-import { useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { handleSubmitPassUpEmail } from '../validation/Pass';
+
+export interface UserData {
+    name: string;
+    email: string;
+}
 
 function ActContrasena() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [password, setPassword] = useState("");
+    const [verPassword, setVerPassword] = useState("");
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -12,6 +22,42 @@ function ActContrasena() {
         setShowConfirmPassword(!showConfirmPassword);
     };
 
+    const navigate = useNavigate();
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get("token");
+
+    useEffect(() => {
+        if (!token) {
+            navigate("/");
+        }
+    }, [token, navigate]);
+
+    if (!token) {
+        return null;
+    }
+
+    const handleSubmitPassEmail = async (event: FormEvent) => {
+        event.preventDefault();
+        setIsLoading(true);
+
+        const emailData = await handleSubmitPassUpEmail(event, password, verPassword, setPassword, setVerPassword);
+
+        if (emailData) {
+            const { tokens, name, email } = emailData;
+            localStorage.setItem("ACCESS_TOKEN", tokens);
+            const sessionData: UserData = {
+                name, email
+            };
+
+            localStorage.setItem("USER_SESSION", JSON.stringify(sessionData));
+            setTimeout(() => {
+                navigate("/userhome");
+            }, 3000);
+        }
+
+        setIsLoading(false);
+    };
+
     return (
         <div className="font-quicksand flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-900 via-black to-gray-900">
             <div className="bg-gray-800 p-8 rounded-lg shadow-lg max-w-md w-full">
@@ -19,7 +65,10 @@ function ActContrasena() {
                     Actualiza tu Contraseña
                 </h2>
 
-                <form className="space-y-6">
+                <p id="MensajeErrEmail" className="hidden text-red-500 text-sm font-medium rounded-lg text-center"></p>
+                <p id="MensajeActEmail" className="hidden text-green-500 text-sm font-medium rounded-lg text-center"></p>
+
+                <form onSubmit={handleSubmitPassEmail} className="space-y-6">
                     <div>
                         <label className="block text-gray-400 text-sm font-semibold mb-2" htmlFor="newPassword">
                             Nueva contraseña
@@ -29,7 +78,8 @@ function ActContrasena() {
                                 id="newPassword"
                                 name="newPassword"
                                 type={showPassword ? "text" : "password"}
-                                required
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 className="w-full p-3 rounded-lg bg-gray-900 text-white focus:ring-2 focus:ring-orange-400 focus:outline-none"
                                 placeholder="Tu nueva contraseña"
                             />
@@ -52,7 +102,8 @@ function ActContrasena() {
                                 id="confirmPassword"
                                 name="confirmPassword"
                                 type={showConfirmPassword ? "text" : "password"}
-                                required
+                                value={verPassword}
+                                onChange={(e) => setVerPassword(e.target.value)}
                                 className="w-full p-3 rounded-lg bg-gray-900 text-white focus:ring-2 focus:ring-orange-400 focus:outline-none"
                                 placeholder="Confirma tu nueva contraseña"
                             />
@@ -69,9 +120,9 @@ function ActContrasena() {
                     <div>
                         <button
                             type="submit"
-                            className="w-full p-3 rounded-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-semibold hover:opacity-90 transition transform hover:scale-105"
+                            className="w-full p-3 rounded-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-semibold hover:opacity-90 transition transform hover:scale-105" disabled={isLoading}
                         >
-                            Actualizar Contraseña
+                            {isLoading ? "Actualizando" : "Actualizar"}
                         </button>
                     </div>
                 </form>
