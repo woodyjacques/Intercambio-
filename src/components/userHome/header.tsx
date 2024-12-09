@@ -126,11 +126,8 @@ function Header() {
             </aside>
 
             <div
-                className={`p-4 transition-all ${isAsideOpen ? "lg:ml-64" : "ml-0"
+                className={`transition-all ${isAsideOpen ? "lg:ml-64" : "ml-0"
                     }`}
-                style={{
-                    background: "#e8f0fa",
-                }}
             >
                 <Outlet />
             </div>

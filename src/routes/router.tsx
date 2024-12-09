@@ -7,6 +7,11 @@ import ActContrasena from "../views/ActContrasena";
 import Explorador from "../views/Explorador";
 import Emailverifi from "../views/EmailVerifi";
 import Header from "../components/userHome/header";
+import Articulos from "../views/Articulos";
+import Trueques from "../views/Trueques";
+import Favorito from "../views/Favorito";
+import Perfil from "../views/Perfil";
+import Soporte from "../views/Soporte";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -20,8 +25,13 @@ const router = createBrowserRouter([
     element: <Header />,
     children: [
       { path: "/explorar", element: <Explorador /> },
+      { path: "/articulos", element: <Articulos /> },
+      { path: "/trueques", element: <Trueques /> },
+      { path: "/favorito", element: <Favorito /> },
+      { path: "/perfil", element: <Perfil /> },
+      { path: "/soporte", element: <Soporte /> }
     ]
-},
+  },
 
 ]);
 
