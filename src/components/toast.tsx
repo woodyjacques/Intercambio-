@@ -68,7 +68,7 @@ export function mostrarMensaje(mensaje: string, elemento: HTMLElement | null) {
             <button
               onClick={onConfirm}
               type="button"
-              className="transition duration-300 transform hover:scale-105 text-white bg-orange-600 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-green-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+              className="transition duration-300 transform hover:scale-105 text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
             >
               Sí, seguro
             </button>

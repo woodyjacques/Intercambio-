@@ -116,7 +116,7 @@ function Header() {
                         <div className="mt-auto">
                             <button
                                 onClick={showModal}
-                                className="transition duration-300 transform hover:scale-105 w-full p-2 text-white bg-gray-800 hover:bg-gray-500 rounded-lg"
+                                className="transition duration-300 transform hover:scale-105 w-full p-2 text-white bg-orange-600 hover:bg-orange-700 rounded-lg"
                             >
                                 Cerrar sesión
                             </button>
