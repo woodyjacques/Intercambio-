@@ -1,0 +1,9 @@
+
+
+nombre
+email
+biografia
+intercambios completados
+puntuacion
+foto
+articulos publicados
