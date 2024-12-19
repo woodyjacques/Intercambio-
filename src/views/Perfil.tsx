@@ -1,61 +1,207 @@
-function Perfil() {
-    return (
-        <div className="max-w-4xl mx-auto mt-10 bg-white shadow-md rounded-lg overflow-hidden">
-            {/* Encabezado */}
-            <div className="flex flex-col sm:flex-row items-center bg-blue-500 text-white p-6">
-                <img
-                    className="w-24 h-24 rounded-full border-4 border-white mb-4 sm:mb-0 sm:mr-4"
-                    src="https://via.placeholder.com/150"
-                    alt="Foto de perfil"
-                />
-                <div className="text-center sm:text-left">
-                    <h1 className="text-2xl font-bold">Nombre del Usuario</h1>
-                    <p className="text-sm">email@example.com</p>
-                </div>
-            </div>
+import { useState } from "react";
 
-            {/* Información del perfil */}
-            <div className="p-6">
-                <div className="mb-6">
-                    <h2 className="text-lg font-semibold mb-2">Biografía</h2>
-                    <p className="text-gray-700">
-                        Esta es una breve descripción del usuario. Aquí puede ir algo sobre sus
-                        intereses o cualquier otro dato relevante.
+function Perfil() {
+
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    return (
+        <div className="mt-14 bg-gray-900 p-4 sm:p-6 rounded-lg shadow-md flex justify-center items-center min-h-screen">
+            <div className="w-full max-w-4xl bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+            <div className="flex justify-end px-4 pt-4 relative">
+                    <button
+                        onClick={toggleDropdown}
+                        className="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
+                        type="button"
+                    >
+                        <span className="sr-only">Open dropdown</span>
+                        <svg
+                            className="w-5 h-5"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 16 3"
+                        >
+                            <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
+                        </svg>
+                    </button>
+
+                    {/* Dropdown Menu */}
+                    <div
+                        className={`absolute top-12 right-4 z-10 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 ${
+                            isDropdownOpen ? "block" : "hidden"
+                        }`}
+                    >
+                        <ul className="py-2">
+                            <li>
+                                <a
+                                    href="#"
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                >
+                                    Actualizar información
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                >
+                                    Cambiar contraseña
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                >
+                                    Verifícate
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center text-center pb-10">
+                    <img
+                        className="w-20 h-20 sm:w-24 sm:h-24 mb-3 rounded-full shadow-lg"
+                        src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
+                        alt="Woody Jacques"
+                    />
+                    <h5 className="mb-1 text-lg sm:text-xl font-medium text-gray-900 dark:text-white">
+                        Woody Jacques
+                    </h5>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                        Woodyjacques1@gmail.com
+                    </span>
+                    <p className="mt-2 text-sm sm:text-base text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, dolores distinctio.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="bg-gray-100 p-4 rounded-lg text-center">
-                        <h3 className="text-lg font-semibold">Intercambios Completados</h3>
-                        <p className="text-2xl font-bold text-blue-500">12</p>
-                    </div>
-                    <div className="bg-gray-100 p-4 rounded-lg text-center">
-                        <h3 className="text-lg font-semibold">Puntuación</h3>
-                        <p className="text-2xl font-bold text-yellow-500">4.8/5</p>
-                    </div>
-                </div>
-            </div>
 
-            {/* Artículos publicados */}
-            <div className="p-6 border-t">
-                <h2 className="text-lg font-semibold mb-4">Artículos Publicados</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {/* Ejemplo de artículo */}
-                    <div className="bg-gray-100 p-4 rounded-lg shadow">
-                        <img
-                            className="w-full h-32 object-cover rounded-lg mb-2"
-                            src="https://via.placeholder.com/150"
-                            alt="Artículo"
-                        />
-                        <h3 className="text-md font-semibold">Nombre del Artículo</h3>
-                        <p className="text-sm text-gray-600">
-                            Breve descripción del artículo. Categoría.
+                <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-4">
+                    <div className="text-center">
+                        <h5 className="text-lg sm:text-xl font-medium text-gray-900 dark:text-white">
+                            Intercambios
+                        </h5>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                            25
                         </p>
                     </div>
-                    {/* Repite este bloque para cada artículo */}
+                    <div className="text-center">
+                        <h5 className="text-lg sm:text-xl font-medium text-gray-900 dark:text-white">
+                            Puntuación
+                        </h5>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                            4.8/5
+                        </p>
+                    </div>
+                    <div className="text-center">
+                        <h5 className="text-lg sm:text-xl font-medium text-gray-900 dark:text-white">
+                            Verificación
+                        </h5>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                            Completada
+                        </p>
+                    </div>
                 </div>
+
+                <div className="px-6 py-4">
+                    <h3 className="text-lg sm:text-xl font-medium text-gray-900 dark:text-white mb-4">
+                        Artículos
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                        <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow">
+                            <img
+                                className="w-full h-32 object-cover rounded-lg mb-4"
+                                src="https://via.placeholder.com/150"
+                                alt="Artículo 1"
+                            />
+                            <h4 className="font-medium text-gray-900 dark:text-white">Artículo 1</h4>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                                Descripción breve del artículo.
+                            </p>
+                        </div>
+            
+                        <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow">
+                            <img
+                                className="w-full h-32 object-cover rounded-lg mb-4"
+                                src="https://via.placeholder.com/150"
+                                alt="Artículo 2"
+                            />
+                            <h4 className="font-medium text-gray-900 dark:text-white">Artículo 2</h4>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                                Descripción breve del artículo.
+                            </p>
+                        </div>
+                     
+                        <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow">
+                            <img
+                                className="w-full h-32 object-cover rounded-lg mb-4"
+                                src="https://via.placeholder.com/150"
+                                alt="Artículo 3"
+                            />
+                            <h4 className="font-medium text-gray-900 dark:text-white">Artículo 3</h4>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                                Descripción breve del artículo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3 className="text-lg sm:text-xl font-medium text-gray-900 dark:text-white mt-6 mb-4">
+                        Favoritos
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        
+                        <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow">
+                            <img
+                                className="w-full h-32 object-cover rounded-lg mb-4"
+                                src="https://via.placeholder.com/150"
+                                alt="Favorito 1"
+                            />
+                            <h4 className="font-medium text-gray-900 dark:text-white">Favorito 1</h4>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                                Descripción breve del favorito.
+                            </p>
+                        </div>
+                       
+                        <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow">
+                            <img
+                                className="w-full h-32 object-cover rounded-lg mb-4"
+                                src="https://via.placeholder.com/150"
+                                alt="Favorito 2"
+                            />
+                            <h4 className="font-medium text-gray-900 dark:text-white">Favorito 2</h4>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                                Descripción breve del favorito.
+                            </p>
+                        </div>
+                      
+                        <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow">
+                            <img
+                                className="w-full h-32 object-cover rounded-lg mb-4"
+                                src="https://via.placeholder.com/150"
+                                alt="Favorito 3"
+                            />
+                            <h4 className="font-medium text-gray-900 dark:text-white">Favorito 3</h4>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                                Descripción breve del favorito.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     );
 }
 
 export default Perfil;
+
+
+
+
